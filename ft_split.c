@@ -6,32 +6,73 @@
 /*   By: almeliky <almeliky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 21:45:22 by almeliky          #+#    #+#             */
-/*   Updated: 2023/02/21 22:14:51 by almeliky         ###   ########.fr       */
+/*   Updated: 2023/02/23 18:22:15 by almeliky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char **ft_split(char const *s, char c)
+int	ft_wordcounter(char const *s, char c)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (s[i])
+	{
+		while (s[i] && s[i] == c)
+			i++;
+		while (s[i] && s[i] != c)
+			i++;
+		if (s[i] || (!s[i] && s[i - 1] != c))
+			count++;
+	}
+	return (count);
+}
+
+char	*ft_subword(char const *s, char c, int num)
 {
 	int		i;
-	int		b;
+	int		k;
+	char	*word;
+
+	i = 0;
+	k = 0;
+	while (s[i] && num-- >= 0)
+	{
+		k = 0;
+		while (s[i] && s[i] == c)
+			i++;
+		while (s[i] && s[i] != c)
+		{
+			i++;
+			k++;
+		}	
+	}
+	word = ft_substr(s, i - k, k);
+	return (word);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		i;
 	int		count;
 	char	**arr;
 
-	i = -1;
-	count = 0;
-	b = 0;
-	while (str[++i])
-	{
-		if (str[i] == c)
-			count++;
-	}
 	i = 0;
-	arr = malloc(sizeof(char *) * count);
+	if (!s)
+		return (NULL);
+	count = ft_wordcounter(s, c);
+	arr = malloc(sizeof(char *) * (count + 1));
+	if (!arr)
+		return (NULL);
 	while (i < count)
 	{
-		while (s[b++] != c)
-			b++;
+		arr[i] = ft_subword(s, c, i);
+		i++;
 	}
+	arr[i] = NULL;
+	return (arr);
 }

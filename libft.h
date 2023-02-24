@@ -6,7 +6,7 @@
 /*   By: almeliky <almeliky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 18:57:09 by almeliky          #+#    #+#             */
-/*   Updated: 2023/02/23 18:29:50 by almeliky         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:39:27 by almeliky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include<stdlib.h>
 # include<string.h>
 # include<limits.h>
+# include<unistd.h>
 
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
@@ -46,4 +47,10 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char 	**ft_split(char const *s, char c);
 char 	*ft_itoa(int n);
+char 	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void 	ft_putchar_fd(char c, int fd);
+void 	ft_putstr_fd(char *s, int fd);
+void 	ft_putendl_fd(char *s, int fd);
+void 	ft_putnbr_fd(int n, int fd);
 #endif

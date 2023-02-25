@@ -6,7 +6,7 @@
 /*   By: almeliky <almeliky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:39:34 by almeliky          #+#    #+#             */
-/*   Updated: 2023/02/24 18:40:49 by almeliky         ###   ########.fr       */
+/*   Updated: 2023/02/24 19:59:40 by almeliky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,13 @@ void	ft_putnbr_fd(int n, int fd)
 			write(fd, "0", 1);
 			return ;
 		}
-		ft_putnbr_fd(num / 10, fd);
+		if (num / 10 != 0)
+			ft_putnbr_fd(num / 10, fd);
 		write(fd, &c, 1);
 	}
 }
 
-int main()
+/* int main()
 {
-	ft_putnbr_fd(1, 1);
-}
+	ft_putnbr_fd(10, 1);
+} */

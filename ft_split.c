@@ -6,12 +6,11 @@
 /*   By: almeliky <almeliky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 21:45:22 by almeliky          #+#    #+#             */
-/*   Updated: 2023/02/23 18:22:15 by almeliky         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:53:17 by almeliky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int	ft_wordcounter(char const *s, char c)
 {

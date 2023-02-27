@@ -6,11 +6,9 @@
 /*   By: almeliky <almeliky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 19:17:21 by almeliky          #+#    #+#             */
-/*   Updated: 2023/02/18 19:24:59 by almeliky         ###   ########.fr       */
+/*   Updated: 2023/02/27 18:04:29 by almeliky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-//#include<stdio.h>
 
 int	ft_tolower(int c)
 {
@@ -18,9 +16,3 @@ int	ft_tolower(int c)
 		c += 32;
 	return (c);
 }
-
-// int	main()
-// {
-// 	printf("%c\n", ft_toupper('z'));
-// 	return (0);
-// }

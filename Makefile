@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: almeliky <almeliky@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/02/27 17:47:59 by almeliky          #+#    #+#              #
+#    Updated: 2023/02/27 17:48:07 by almeliky         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME	=	libft.a
 
 SRCS	=	ft_bzero.c		ft_isalnum.c	ft_isalpha.c\
@@ -11,16 +23,19 @@ SRCS	=	ft_bzero.c		ft_isalnum.c	ft_isalpha.c\
 			ft_strjoin.c	ft_strtrim.c	ft_split.c\
 			ft_itoa.c		ft_strmapi.c	ft_striteri.c\
 			ft_putchar_fd.c	ft_putstr_fd.c	ft_putendl_fd.c\
-			ft_putnbr_fd.c	ft_lstnew.c		ft_lstadd_front.c\
-			ft_lstsize.c	ft_lstlast.c	ft_lstadd_back.c\
-			ft_lstdelone.c	ft_lstclear.c	ft_lstiter.c\
-			ft_lstmap.c
+			ft_putnbr_fd.c\
+
+SRCS_b	=	ft_lstnew.c		ft_lstadd_front.c	ft_lstsize.c\
+			ft_lstlast.c	ft_lstadd_back.c	ft_lstdelone.c\
+			ft_lstclear.c	ft_lstiter.c		ft_lstmap.c\
 			
 HEADER	=	./
 
-OBJS	=	$(patsubst %.c, %.o, $(SRCS))
+OBJS	=	$(SRCS:%.c=%.o)
 
-CC		=	gcc
+OBJS_b	=	$(SRCS_b:%.c=%.o)
+
+CC		=	cc
 
 CFLAGS	=	-Wall -Wextra -Werror -I$(HEADER)
 
@@ -32,12 +47,15 @@ all: $(NAME)
 $(NAME) : $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
+bonus: ${OBJS_b}
+	ar rcs ${NAME} ${OBJS_b}
+
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJS) $(OBJS_b)
 
 fclean:
-	rm -rf $(OBJS) $(NAME)
+	rm -rf $(OBJS) $(OBJS_b) $(NAME)
 
-re : fclean all
+re : fclean all bonus
 
-.PHONY : all clean fclean re
+.PHONY : all clean bonus fclean re

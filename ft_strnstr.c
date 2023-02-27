@@ -6,12 +6,11 @@
 /*   By: almeliky <almeliky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 16:19:41 by almeliky          #+#    #+#             */
-/*   Updated: 2023/02/20 21:41:59 by almeliky         ###   ########.fr       */
+/*   Updated: 2023/02/27 18:04:06 by almeliky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdio.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
